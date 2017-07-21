@@ -15,7 +15,7 @@
 console.log("Client da khoi dong")
 function openStream(){
 	return navigator.mediaDevices.getUserMedia({
-		audio: true, video: true
+		audio: false, video: true
 	});
 }
 function playStream(idVideoTag, stream){
