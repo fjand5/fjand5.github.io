@@ -10,19 +10,5 @@
 	<video id="localStream" controls width="400"></video>
 	<video id="remoteStream" controls width="400"></video>
 </body>
-<script>
-	 var socket = io("http://192.168.1.61:3000");
-console.log("Client da khoi dong")
-function openStream(){
-	return navigator.mediaDevices.getUserMedia({
-		audio: false, video: true
-	});
-}
-function playStream(idVideoTag, stream){
-	var video = document.getElementById(idVideoTag);
-	video.srcObject = stream;
-	video.play();
-}
-playStream("localStream",openStream());
-</script>
+<script src="./main.js"></script>
 </html>
