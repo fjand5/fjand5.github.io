@@ -14,7 +14,7 @@ function playStream(idVideoTag, stream){
 	video.play();
 }
 
-var peer = new Peer({key: 'peerjs', host: "serverpeer92.herokuapp.com", secure: true, port: 443});
+var peer = new Peer({key: 'lwjd5qra8257b9'});
 peer.on("open", id=>{
 	$("#myID").append(id);
 	socket.emit("CO_ID_MOI",id);
