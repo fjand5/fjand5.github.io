@@ -11,6 +11,18 @@ function playStream(idVideoTag, stream){
 	video.play();
 }
 
-// openStream().then(stm => playStream("localStream",stm))
 var peer = new Peer({key: 'lwjd5qra8257b9'});
-peer.on("open", id=>console.log(ip));
+peer.on("open", id=>$("#myID").append(id));
+
+$("#Call").click(() =>{
+	var id = $("#yourID").var();
+
+	var c = peer.call(id);
+	c.on("stream",rst => playStream("remoteStream",rst));
+
+})
+peer.on("call",c=>{
+	openStream().then(stm =>{
+		c.answer(stm);
+	})
+})
