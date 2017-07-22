@@ -11,22 +11,22 @@ function playStream(idVideoTag, stream){
 	video.play();
 }
 
-// var peer = new Peer({key: 'lwjd5qra8257b9'});
-// peer.on("open", id=>$("#myID").append(id));
+var peer = new Peer({key: 'lwjd5qra8257b9'});
+peer.on("open", id=>$("#myID").append(id));
 
 $("#Call").click(() =>{
-	// var id = $("#yourID").val();
+	var id = $("#yourID").val();
 	openStream().then(stm => {
 		playStream("localStream",stm);
-		// var c = peer.call(id,stm);
-		// c.on("stream",rst => playStream("remoteStream",rst));
+		var c = peer.call(id,stm);
+		c.on("stream",rst => playStream("remoteStream",rst));
 	})
 	console.log("da click");
 
 })
-// peer.on("call",c=>{
-// 	openStream().then(stm =>{
-// 		c.answer(stm);
-// 		console.log("co nguoi goi");
-// 	})
-// })
+peer.on("call",c=>{
+	openStream().then(stm =>{
+		c.answer(stm);
+		console.log("co nguoi goi");
+	})
+})
