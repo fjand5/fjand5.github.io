@@ -11,4 +11,6 @@ function playStream(idVideoTag, stream){
 	video.play();
 }
 
-openStream().then(stm => playStream("localStream",stm))
+// openStream().then(stm => playStream("localStream",stm))
+var peer = new Peer({key: 'lwjd5qra8257b9'});
+peer.on("open", id=>console.log(ip));
