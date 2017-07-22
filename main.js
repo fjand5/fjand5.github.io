@@ -1,5 +1,8 @@
 var socket = io("http://192.168.1.61:3000");
 console.log("Client da khoi dong")
+socket.on("ID_MOI", id=>{
+	$("#myID").append("<br>"+ id);
+});
 function openStream(){
 	return navigator.mediaDevices.getUserMedia({
 		audio: true, video: true
@@ -12,7 +15,11 @@ function playStream(idVideoTag, stream){
 }
 
 var peer = new Peer({key: 'lwjd5qra8257b9'});
-peer.on("open", id=>$("#myID").append(id));
+peer.on("open", id=>{
+	$("#myID").append(id);
+	socket.emit("CO_ID_MOI",id);
+
+});
 
 $("#Call").click(() =>{
 	var id = $("#yourID").val();
