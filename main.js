@@ -2,7 +2,7 @@ var socket = io("http://192.168.1.61:3000");
 console.log("Client da khoi dong")
 function openStream(){
 	return navigator.mediaDevices.getUserMedia({
-		audio: true, video: true
+		audio: true, video: false
 	});
 }
 function playStream(idVideoTag, stream){
@@ -21,9 +21,12 @@ $("#Call").click(() =>{
 		var c = peer.call(id,stm);
 		c.on("stream",rst => playStream("remoteStream",rst));
 	})
+	console.log("da click");
+
 })
 peer.on("call",c=>{
 	openStream().then(stm =>{
 		c.answer(stm);
+		console.log("co nguoi goi");
 	})
 })
