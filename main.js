@@ -15,7 +15,7 @@ $("#playVideo").click(()=>{
 		setInterval(()=>{
 	var c=document.getElementById("displayVideo");
 	var ctx=c.getContext("2d");
-	ctx.drawImage(stream.src,10,10);
+	ctx.drawImage(stream.read(),10,10);
 },20)
 	})
 
