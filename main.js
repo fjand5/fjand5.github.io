@@ -1,24 +1,28 @@
 var socket = io("https://svsocket.herokuapp.com/");
+var img = new Image()
 
-socket.on("YOUR_ID",id => console.log("id cua client: " + id));
-$("#Send").click(()=>{
-	console.log("xem ");
-	socket.emit("LA_LANG","tao dang click");
-});
-function getMedia(){
-	return navigator.mediaDevices.getUserMedia({audio:true,video:true});
+function getMedia(config){
+	return navigator.mediaDevices.getUserMedia(config);
 }
 function playMedia(id,str)
 {
 	var video = document.getElementById(id);
 	video.srcObject = str;
-
-		video.play();
-
-
+	video.play();
 }
-$("#play").click(()=>{
-	getMedia().then(str=>{
-		playMedia("mediaPlayer",str);
+$("#playVideo").click(()=>{
+	getMedia({audio:true,video:true}).then(stream =>{
+		setInterval(()=>{
+	var c=document.getElementById("displayVideo");
+	var ctx=c.getContext("2d");
+	ctx.drawImage(stream.src,10,10);
+},20)
 	})
+
+
+
+
 })
+
+
+
