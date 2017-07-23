@@ -12,9 +12,9 @@ function playMedia(id,str)
 {
 	var video = document.getElementById(id);
 	video.srcObject = str;
-	video.onloadedmetadata = function(e) {
+
 		video.play();
-	}
+
 
 }
 $("#play").click(()=>{
