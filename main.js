@@ -6,7 +6,7 @@ $("#Send").click(()=>{
 	socket.emit("LA_LANG","tao dang click");
 });
 function getMedia(){
-	return navigator.mediaDevices.getUserMedia({audio:true,video:false});
+	return navigator.mediaDevices.getUserMedia({audio:true,video:true});
 }
 function playMedia(id,str)
 {
