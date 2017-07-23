@@ -1,28 +1,16 @@
-var socket = io("https://svsocket.herokuapp.com/");
-var img = new Image()
-
 function getMedia(config){
 	return navigator.mediaDevices.getUserMedia(config);
 }
-function playMedia(id,str)
-{
+function playMedia(id,stream){
 	var video = document.getElementById(id);
-	video.srcObject = str;
+	video.srcObject = stream;
 	video.play();
 }
 $("#playVideo").click(()=>{
-	getMedia({audio:true,video:true}).then(stream =>{
-		setInterval(()=>{
-	var c=document.getElementById("displayVideo");
-	var ctx=c.getContext("2d");
-	ctx.drawImage(stream.read(),10,10);
-},20)
+	getMedia({audio:$('#hasAudio').is(":checked"),video:$('#hasVideo').is(":checked")}).then(stream=>{
+		playMedia("localVideo",stream);
 	})
-
-
-
-
 })
-
-
-
+$("#hasVideo").click(()=>{
+	console.log()
+})

@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Học SocketIO</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<title>Hoc WenRTC</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 </head>
 <body>
-	<canvas id="displayVideo"> Hinh anh</canvas>
-	<button id="playVideo">Play</button>
-
+<video id="localVideo" controls=""></video>
+<button id="playVideo"> Play Video</button>
+<input type="checkbox" name="vehicle" id="hasVideo" value="Video">
+<label for="hasVideo">Video</label>
+<input type="checkbox" name="vehicle" id="hasAudio" value="Audio">
+<label for="hasAudio">Audio</label>
 </body>
-<script src="main.js">
-</script>
+<script src="./main.js"></script>
 </html>
