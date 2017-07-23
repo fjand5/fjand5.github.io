@@ -6,11 +6,11 @@ $("#Send").click(()=>{
 	socket.emit("LA_LANG","tao dang click");
 });
 function getMedia(){
-	return navigator.mediaDevices.getUserMedia({audio:true,video:true});
+	return navigator.mediaDevices.getUserMedia({audio:true,video:false});
 }
 function playMedia(id,str)
 {
-	var video = document.querySelector(id);
+	var video = document.getElementById(id);
 	video.srcObject = str;
 	video.onloadedmetadata = function(e) {
 		video.play();
