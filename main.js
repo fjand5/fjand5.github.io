@@ -11,6 +11,16 @@ $("#playVideo").click(()=>{
 		playMedia("localVideo",stream);
 	})
 })
-$("#hasVideo").click(()=>{
-	console.log()
+
+
+var peer = new Peer({key: 'lwjd5qra8257b9'});
+peer.on("open",id=>console.log(id))
+peer.on("call",stream =>
+{
+	playMedia(remoteVideo,stream);
+})
+$("#call").click(()=>{
+	getMedia({audio:$('#hasAudio').is(":checked"),video:$('#hasVideo').is(":checked")}).then(stream=>{
+		Peer.call($("#remoteId").val(),stream)
+	})
 })

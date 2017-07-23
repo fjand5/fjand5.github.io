@@ -3,14 +3,18 @@
 <head>
 	<title>Hoc WenRTC</title>
 	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<script src="http://cdn.peerjs.com/0.3/peer.js"></script>
 </head>
 <body>
 <video id="localVideo" controls=""></video>
+<video id="remoteVideo" controls=""></video>
 <button id="playVideo"> Play Video</button>
 <input type="checkbox" name="vehicle" id="hasVideo" value="Video">
 <label for="hasVideo">Video</label>
 <input type="checkbox" name="vehicle" id="hasAudio" value="Audio">
 <label for="hasAudio">Audio</label>
+<button id="call">Gọi</button>
+<input type="text" id="remoteId">
 </body>
 <script src="./main.js"></script>
 </html>
